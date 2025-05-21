@@ -1,0 +1,141 @@
+/* Contact Section Styles */
+.main-contact-section {
+    padding: 6rem 0;
+    background-color: var(--white);
+}
+
+.main-contact-section .container {
+    max-width: 1000px; /* Adjusted max-width for better fit with the image */
+}
+
+.main-contact-content {
+    display: flex;
+    gap: 4rem; /* Increased gap for separation */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.main-contact-info {
+    flex: 1;
+    min-width: 300px; /* Ensure minimum width */
+}
+
+.main-contact-info h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.main-contact-info p {
+    color: var(--gray-dark);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.main-contact-details {
+    display: block; /* Ensure block display for the container */
+}
+
+.main-contact-details p {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-bottom: 1rem; /* Spacing between contact detail lines */
+}
+
+.main-contact-details i {
+    color: var(--primary); /* Using primary color for icons */
+    font-size: 1.2rem; /* Slightly larger icons */
+    margin-right: 0.5rem; /* Add spacing to the right of the icon */
+}
+
+.main-contact-form {
+    flex: 1.5; /* Give form more space */
+    min-width: 400px; /* Ensure minimum width for the form */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px; /* Slightly less rounded borders */
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-light); /* Lighter primary on focus */
+}
+
+.form-group.name-group {
+    display: flex;
+    gap: 1.5rem; /* Gap between first and last name fields */
+}
+
+.form-group-half {
+    flex: 1;
+}
+
+.submit-btn {
+    display: inline-block; /* Changed to inline-block */
+    padding: 0.8rem 2rem; /* Padding similar to other buttons */
+    background-color: var(--primary); /* Primary color for button */
+    color: var(--white);
+    border: none;
+    border-radius: 30px; /* More rounded corners */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Ensure no underline if it's an anchor */
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-dark); /* Darker primary on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(134, 55, 14, 0.2); /* Subtle shadow */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .main-contact-content {
+        flex-direction: column; /* Stack columns on smaller screens */
+        gap: 2rem;
+    }
+
+    .main-contact-info,
+    .main-contact-form {
+        min-width: auto; /* Remove min-width on small screens */
+        width: 100%;
+    }
+
+    .form-group.name-group {
+        flex-direction: column; /* Stack name fields on small screens */
+        gap: 1rem;
+    }
+
+    .submit-btn {
+        width: 100%; /* Full width button on small screens */
+        text-align: center;
+    }
+} 

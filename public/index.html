@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NGO Website</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+        <link rel="stylesheet" href="assets/css/home.css" />
+    </head>
+    <body>
+        <div class="header-wrapper">
+            <!-- header top -->
+            <div class="header-top">
+                <div class="header-top-container">
+                    <div class="contact-info">
+                        <a href="mailto:info@example.com">
+                            <i class="far fa-envelope"></i>
+                            info@example.com
+                        </a>
+                        <a href="tel:+1234567890">
+                            <i class="fas fa-phone"></i>
+                            +123 456 7890
+                        </a>
+                        <span class="address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            123 Street Name, City, Country
+                        </span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"
+                            ><i class="fab fa-facebook-f"></i
+                        ></a>
+                        <a href="#" aria-label="Twitter"
+                            ><i class="fab fa-twitter"></i
+                        ></a>
+                        <a href="#" aria-label="Instagram"
+                            ><i class="fab fa-instagram"></i
+                        ></a>
+                        <a href="#" aria-label="LinkedIn"
+                            ><i class="fab fa-linkedin-in"></i
+                        ></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- navbar -->
+            <nav class="navbar">
+                <div class="nav-container">
+                    <div class="logo">
+                        <img src="assets/img/logo/logo2.png" alt="NGO Logo" />
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/home#our-work">Our Work</a></li>
+                        <li><a href="/home#campaigns">Campaigns</a></li>
+                        <li><a href="/home#get-involved">Get Involved</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                    <a href="/donate" class="donate-btn">Donate</a>
+                    <div class="hamburger">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- hero section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Making a Difference in Lives Around the World</h1>
+                    <p class="hero-subtitle">
+                        Join us in our mission to create positive change and
+                        build a better future for communities in need.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/donate" class="btn btn-primary">Donate Now</a>
+                        <a href="/home#get-involved" class="btn btn-secondary"
+                            >Get Involved</a
+                        >
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="life-impacted-count"
+                                >50K+</span
+                            >
+                            <span class="stat-label">Lives Impacted</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="projects-count"
+                                >100+</span
+                            >
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="countries-count"
+                                >25+</span
+                            >
+                            <span class="stat-label">Countries</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img
+                        src="assets/img/2021_Slider_4_India.jpg"
+                        alt="People helping communities"
+                        class="grayscale"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories Section -->
+        <section class="success-stories" id="success-stories">
+            <div class="container">
+                <h2>Success Stories</h2>
+                <div class="stories-slider-wrapper">
+                    <button
+                        class="slider-arrow left"
+                        aria-label="Previous stories"
+                    >
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="stories-slider">
+                        <div class="story-card">
+                            <img
+                                src="assets/img/indian-woman-at-New-Light.jpg"
+                                alt="Success Story 1"
+                            />
+                            <div class="story-info">
+                                <h3>Empowering Women in Rural Areas</h3>
+                                <p>
+                                    Through our microfinance program, over 200
+                                    women have started their own businesses,
+                                    transforming their families' futures.
+                                </p>
+                                <a href="/story#story1" class="read-more"
+                                    >Read More <i class="fas fa-arrow-right"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <img
+                                src="assets/img/indian-child-boy-draws-water-260nw-2596498413.webp"
+                                alt="Success Story 2"
+                            />
+                            <div class="story-info">
+                                <h3>Clean Water for Children</h3>
+                                <p>
+                                    Our recent water project brought safe
+                                    drinking water to 5 villages, reducing
+                                    illness and improving school attendance.
+                                </p>
+                                <a href="/story#story2" class="read-more"
+                                    >Read More <i class="fas fa-arrow-right"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <img
+                                src="assets/img/depositphotos_647066144-stock-photo-rural-rajasthan-india-students-rural.jpg"
+                                alt="Success Story 3"
+                            />
+                            <div class="story-info">
+                                <h3>Education for All</h3>
+                                <p>
+                                    We provided scholarships and school supplies
+                                    to 300+ children, helping them stay in
+                                    school and excel.
+                                </p>
+                                <a href="/story#story3" class="read-more"
+                                    >Read More <i class="fas fa-arrow-right"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <div class="story-card">
+                            <img
+                                src="assets/img/nfhs.jpg"
+                                alt="Success Story 4"
+                            />
+                            <div class="story-info">
+                                <h3>Healthcare Access</h3>
+                                <p>
+                                    Mobile health camps reached remote areas,
+                                    offering free checkups and medicines to
+                                    hundreds in need.
+                                </p>
+                                <a href="/story#story4" class="read-more"
+                                    >Read More <i class="fas fa-arrow-right"></i
+                                ></a>
+                            </div>
+                        </div>
+                        <!-- Add more story-card divs as needed -->
+                    </div>
+                    <button
+                        class="slider-arrow right"
+                        aria-label="Next stories"
+                    >
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Work Section -->
+        <section class="our-work" id="our-work">
+            <div class="container">
+                <h2>Our Work</h2>
+                <div class="work-cards">
+                    <div class="work-card">
+                        <a
+                            href="/works"
+                            style="text-decoration: none; color: inherit;"
+                        >
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Education</h3>
+                            <p>
+                                Providing access to quality education for
+                                children and adults in underserved communities.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="work-card">
+                        <a
+                            href="/works"
+                            style="text-decoration: none; color: inherit;"
+                        >
+                            <i class="fas fa-hand-holding-medical"></i>
+                            <h3>Healthcare</h3>
+                            <p>
+                                Delivering essential healthcare services and
+                                promoting healthy living for all.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="work-card">
+                        <a
+                            href="/works"
+                            style="text-decoration: none; color: inherit;"
+                        >
+                            <i class="fas fa-seedling"></i>
+                            <h3>Sustainability</h3>
+                            <p>
+                                Empowering communities with sustainable
+                                solutions for a better tomorrow.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campaigns Section -->
+        <section class="campaigns" id="campaigns">
+            <div class="container">
+                <h2>Featured Campaigns</h2>
+                <div class="campaign-cards">
+                    <div class="campaign-card">
+                        <img
+                            src="assets/img/indian-child-boy-draws-water-260nw-2596498413.webp"
+                            alt="Campaign 1"
+                        />
+                        <div class="campaign-info">
+                            <h3>Clean Water for All</h3>
+                            <p>
+                                Help us provide safe and clean drinking water to
+                                remote villages.
+                            </p>
+                            <a href="/donate" class="btn btn-primary"
+                                >Support Now</a
+                            >
+                        </div>
+                    </div>
+                    <div class="campaign-card">
+                        <img
+                            src="assets/img/pexels-swastikarora-18012463.jpg"
+                            alt="Campaign 2"
+                        />
+                        <div class="campaign-info">
+                            <h3>Back to School</h3>
+                            <p>
+                                Join our mission to send 1,000 children back to
+                                school this year.
+                            </p>
+                            <a href="/donate" class="btn btn-primary"
+                                >Support Now</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get Involved Section -->
+        <section class="get-involved" id="get-involved">
+            <div class="container">
+                <h2>Get Involved</h2>
+                <div class="involved-options">
+                    <div class="involved-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Volunteer</h3>
+                        <p>
+                            Join our team and make a direct impact in the lives
+                            of others.
+                        </p>
+                    </div>
+                    <div class="involved-card">
+                        <i class="fas fa-donate"></i>
+                        <h3>Donate</h3>
+                        <p>
+                            Your support helps us reach more people and expand
+                            our programs.
+                        </p>
+                    </div>
+                    <div class="involved-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Partner</h3>
+                        <p>
+                            Collaborate with us to create sustainable solutions
+                            for communities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>What People Say</h2>
+                <div class="testimonial-cards">
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img
+                                src="assets/img/people/d737946d153beb56555ed95ab0af1ee1.jpg"
+                                alt="Amina"
+                            />
+                        </div>
+                        <p>
+                            "Thanks to this NGO, my children can now go to
+                            school and dream of a better future."
+                        </p>
+                        <span>- Amina, Beneficiary</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img
+                                src="assets/img/people/Robert_Greene_B&W.jpg"
+                                alt="John"
+                            />
+                        </div>
+                        <p>
+                            "Volunteering here has been a life-changing
+                            experience. The team is amazing!"
+                        </p>
+                        <span>- John, Volunteer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners">
+            <div class="container">
+                <h2>Our Partners</h2>
+                <div class="partner-logos-slider-wrapper">
+                    <button
+                        class="partner-slider-arrow left"
+                        aria-label="Previous partners"
+                    >
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="partner-logos-slider">
+                        <img
+                            src="assets/img/partner/35fa221b9125551fc13446133b8d980337655e15f27b10dfb205db407ab13975.jpg"
+                            alt="Partner 1"
+                        />
+                        <img
+                            src="assets/img/partner/abstract-logo-flame-shape_1043-44.avif"
+                            alt="Partner 2"
+                        />
+                        <img
+                            src="assets/img/partner/istockphoto-1313843101-612x612.jpg"
+                            alt="Partner 3"
+                        />
+                        <img
+                            src="assets/img/partner/istockphoto-1420172793-612x612.jpg"
+                            alt="Partner 4"
+                        />
+                        <img
+                            src="assets/img/partner/logo-search-grid-1x.png"
+                            alt="Partner 5"
+                        />
+                        <img
+                            src="assets/img/partner/logo.png"
+                            alt="Partner 6"
+                        />
+                    </div>
+                    <button
+                        class="partner-slider-arrow right"
+                        aria-label="Next partners"
+                    >
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>Stay Updated</h2>
+                <form class="newsletter-form">
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    />
+                    <button type="submit" class="btn btn-primary">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-section about">
+                        <div class="footer-logo">
+                            <img src="assets/images/logo.png" alt="NGO Logo" />
+                        </div>
+                        <p>
+                            Making a difference in lives around the world
+                            through sustainable development and community
+                            empowerment.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Facebook"
+                                ><i class="fab fa-facebook-f"></i
+                            ></a>
+                            <a href="#" aria-label="Twitter"
+                                ><i class="fab fa-twitter"></i
+                            ></a>
+                            <a href="#" aria-label="Instagram"
+                                ><i class="fab fa-instagram"></i
+                            ></a>
+                            <a href="#" aria-label="LinkedIn"
+                                ><i class="fab fa-linkedin-in"></i
+                            ></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="/home">Home</a></li>
+                            <li><a href="/home#our-work">Our Work</a></li>
+                            <li><a href="/home#campaigns">Campaigns</a></li>
+                            <li>
+                                <a href="/home#get-involved">Get Involved</a>
+                            </li>
+                            <li><a href="/contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section contact">
+                        <h3>Contact Info</h3>
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Street Name, City, Country</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+123 456 7890</span>
+                            </li>
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                <span>info@example.com</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to our newsletter for updates and news.</p>
+                        <form class="footer-newsletter-form">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                required
+                            />
+                            <button type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-bottom-content">
+                        <p>
+                            &copy; Since 2022 - 2025 Sallet IT Soft Pvt. Ltd.
+                            All rights reserved !
+                        </p>
+                        <div class="footer-bottom-links">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                            <a href="#">Cookie Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="assets/js/home.js"></script>
+    </body>
+</html>

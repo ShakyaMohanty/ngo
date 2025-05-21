@@ -1,0 +1,141 @@
+/* Our Work Detail Section Styles */
+.our-work-detail-section {
+    padding: 6rem 0;
+    background-color: var(--white);
+}
+
+.our-work-detail-section .container {
+    max-width: 1000px;
+}
+
+.our-work-detail-section h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--secondary);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.our-work-detail-section .section-intro {
+    text-align: center;
+    color: var(--gray-dark);
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.work-detail-content {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.work-detail-content img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+    border: 1px solid var(--gray-light);
+    padding: 0.5rem;
+}
+
+.work-detail-text {
+    flex: 1;
+}
+
+.work-detail-text h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: var(--secondary);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: left;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-light);
+    display: inline-block;
+}
+
+.work-detail-text p {
+    color: var(--gray-dark);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.work-detail-text ul {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+}
+
+.work-detail-text ul li {
+    color: var(--gray-dark);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.work-detail-text ul li::before {
+    content: '\2022';
+    color: var(--primary);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.5em;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
+    .work-detail-content {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .work-detail-content img {
+        max-width: 100%;
+    }
+
+    .work-detail-text h2,
+    .work-detail-text p,
+    .work-detail-text ul {
+        text-align: center;
+    }
+
+    .work-detail-text ul {
+        margin-left: 1.5rem;
+        padding-left: 0;
+    }
+
+    .work-detail-text ul li {
+         text-align: left;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .our-work-detail-section {
+        padding: 4rem 0;
+    }
+
+    .our-work-detail-section h1 {
+        font-size: 2rem;
+    }
+
+    .our-work-detail-section .section-intro,
+    .work-detail-text p,
+    .work-detail-text ul li {
+        font-size: 0.95rem;
+    }
+
+    .work-detail-text h2 {
+        font-size: 1.5rem;
+        padding-bottom: 0.3rem;
+    }
+}

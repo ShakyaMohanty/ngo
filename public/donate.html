@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Donate - NGO</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+        <link rel="stylesheet" href="assets/css/home.css" />
+        <link rel="stylesheet" href="assets/css/donate_page.css" />
+    </head>
+    <body>
+        <!-- Header Section (Same as index.html) -->
+        <div class="header-wrapper">
+            <!-- header top -->
+            <div class="header-top">
+                <div class="header-top-container">
+                    <div class="contact-info">
+                        <a href="mailto:info@example.com">
+                            <i class="far fa-envelope"></i>
+                            info@example.com
+                        </a>
+                        <a href="tel:+1234567890">
+                            <i class="fas fa-phone"></i>
+                            +123 456 7890
+                        </a>
+                        <span class="address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            123 Street Name, City, Country
+                        </span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"
+                            ><i class="fab fa-facebook-f"></i
+                        ></a>
+                        <a href="#" aria-label="Twitter"
+                            ><i class="fab fa-twitter"></i
+                        ></a>
+                        <a href="#" aria-label="Instagram"
+                            ><i class="fab fa-instagram"></i
+                        ></a>
+                        <a href="#" aria-label="LinkedIn"
+                            ><i class="fab fa-linkedin-in"></i
+                        ></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- navbar -->
+            <nav class="navbar">
+                <div class="nav-container">
+                    <div class="logo">
+                        <img src="assets/img/logo/logo2.png" alt="NGO Logo" />
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/home#our-work">Our Work</a></li>
+                        <li><a href="/home#campaigns">Campaigns</a></li>
+                        <li>
+                            <a href="/home#get-involved">Get Involved</a>
+                        </li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                    <a href="/donate" class="donate-btn">Donate</a>
+                    <div class="hamburger">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Donation Form Section -->
+        <section class="donation-section">
+            <div class="container">
+                <h1>Make a Donation</h1>
+                <p class="donation-intro">
+                    Your contribution can make a real difference in someone's
+                    life.
+                </p>
+
+                <form id="donationForm" class="donation-form">
+                    <!-- User Type Selection -->
+                    <div class="form-section">
+                        <h2>I am a</h2>
+                        <div class="user-type-options">
+                            <label class="user-type-option">
+                                <input
+                                    type="radio"
+                                    name="userType"
+                                    value="volunteer"
+                                    required
+                                />
+                                <div class="option-content">
+                                    <i class="fas fa-hands-helping"></i>
+                                    <span>Volunteer</span>
+                                </div>
+                            </label>
+                            <label class="user-type-option">
+                                <input
+                                    type="radio"
+                                    name="userType"
+                                    value="public"
+                                    required
+                                />
+                                <div class="option-content">
+                                    <i class="fas fa-user"></i>
+                                    <span>Public</span>
+                                </div>
+                            </label>
+                            <label class="user-type-option">
+                                <input
+                                    type="radio"
+                                    name="userType"
+                                    value="partner"
+                                    required
+                                />
+                                <div class="option-content">
+                                    <i class="fas fa-handshake"></i>
+                                    <span>Partner</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Campaign Selection -->
+                    <div class="form-section">
+                        <h2>Select Campaign (Optional)</h2>
+                        <div class="campaign-select">
+                            <select name="campaign" id="campaign">
+                                <option value="general">
+                                    General Donation
+                                </option>
+                                <option value="clean-water">
+                                    Clean Water for All
+                                </option>
+                                <option value="education">
+                                    Back to School
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h2>Personal Information</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    required
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Donation Amount -->
+                    <div class="form-section">
+                        <h2>Donation Amount</h2>
+                        <div class="amount-options">
+                            <label class="amount-option">
+                                <input
+                                    type="radio"
+                                    name="amount"
+                                    value="500"
+                                    required
+                                />
+                                <span>₹500</span>
+                            </label>
+                            <label class="amount-option">
+                                <input
+                                    type="radio"
+                                    name="amount"
+                                    value="1000"
+                                    required
+                                />
+                                <span>₹1000</span>
+                            </label>
+                            <label class="amount-option">
+                                <input
+                                    type="radio"
+                                    name="amount"
+                                    value="5000"
+                                    required
+                                />
+                                <span>₹5000</span>
+                            </label>
+                            <label class="amount-option">
+                                <input
+                                    type="radio"
+                                    name="amount"
+                                    value="10000"
+                                    required
+                                />
+                                <span>₹10000</span>
+                            </label>
+                            <label class="amount-option custom">
+                                <input
+                                    type="radio"
+                                    name="amount"
+                                    value="custom"
+                                    required
+                                />
+                                <span>Custom</span>
+                            </label>
+                        </div>
+                        <div class="custom-amount" style="display: none;">
+                            <label for="customAmount">Enter Amount ($)</label>
+                            <input
+                                type="number"
+                                id="customAmount"
+                                name="customAmount"
+                                min="1"
+                                step="1"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-section">
+                        <button type="submit" class="submit-btn">
+                            Proceed to Payment
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer (Same as index.html) -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-section about">
+                        <div class="footer-logo">
+                            <img src="assets/images/logo.png" alt="NGO Logo" />
+                        </div>
+                        <p>
+                            Making a difference in lives around the world
+                            through sustainable development and community
+                            empowerment.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Facebook"
+                                ><i class="fab fa-facebook-f"></i
+                            ></a>
+                            <a href="#" aria-label="Twitter"
+                                ><i class="fab fa-twitter"></i
+                            ></a>
+                            <a href="#" aria-label="Instagram"
+                                ><i class="fab fa-instagram"></i
+                            ></a>
+                            <a href="#" aria-label="LinkedIn"
+                                ><i class="fab fa-linkedin-in"></i
+                            ></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="/home">Home</a></li>
+                            <li><a href="/home#our-work">Our Work</a></li>
+                            <li><a href="/home#campaigns">Campaigns</a></li>
+                            <li>
+                                <a href="/home#get-involved">Get Involved</a>
+                            </li>
+                            <li><a href="/contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section contact">
+                        <h3>Contact Info</h3>
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Street Name, City, Country</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+123 456 7890</span>
+                            </li>
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                <span>info@example.com</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to our newsletter for updates and news.</p>
+                        <form class="footer-newsletter-form">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                required
+                            />
+                            <button type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-bottom-content">
+                        <p>
+                            &copy; Since 2022 - 2025 Sallet IT Soft Pvt. Ltd.
+                            All rights reserved !
+                        </p>
+                        <div class="footer-bottom-links">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                            <a href="#">Cookie Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="assets/js/home.js"></script>
+        <script src="assets/js/donate_page.js"></script>
+    </body>
+</html>

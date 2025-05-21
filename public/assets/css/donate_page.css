@@ -1,0 +1,295 @@
+/* Donation Section Styles */
+.donation-section {
+    padding: 6rem 0;
+    background-color: var(--white);
+}
+
+.donation-section h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    color: var(--secondary);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.donation-intro {
+    text-align: center;
+    color: var(--gray-dark);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+}
+
+/* Form Styles */
+.donation-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-section {
+    margin-bottom: 3rem;
+}
+
+.form-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* User Type Options */
+.user-type-options {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.user-type-option {
+    flex: 1;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+.user-type-option input[type="radio"] {
+    display: none;
+}
+
+.option-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 2px solid var(--gray-light);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.user-type-option input[type="radio"]:checked + .option-content {
+    border-color: var(--primary);
+    background-color: rgba(254, 102, 1, 0.05);
+}
+
+.option-content i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.option-content span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+/* Campaign Selection */
+.campaign-select {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.campaign-select select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--gray-light);
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--secondary);
+    background-color: var(--white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+}
+
+.campaign-select select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(254, 102, 1, 0.1);
+}
+
+.campaign-select select:hover {
+    border-color: var(--primary-light);
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: var(--secondary);
+}
+
+.form-group input {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Amount Options */
+.amount-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.amount-option {
+    flex: 1;
+    min-width: 100px;
+    max-width: 150px;
+    cursor: pointer;
+}
+
+.amount-option input[type="radio"] {
+    display: none;
+}
+
+.amount-option span {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    border: 2px solid var(--gray-light);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.amount-option input[type="radio"]:checked + span {
+    border-color: var(--primary);
+    background-color: rgba(254, 102, 1, 0.05);
+    color: var(--primary);
+}
+
+.custom-amount {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.custom-amount label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    color: var(--secondary);
+}
+
+.custom-amount input {
+    width: 200px;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Submit Button */
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.submit-btn i {
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .donation-section {
+        padding: 4rem 0;
+    }
+
+    .donation-section h1 {
+        font-size: 2.2rem;
+    }
+
+    .user-type-options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-type-option {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .amount-options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .amount-option {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .donation-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .donation-intro {
+        font-size: 1rem;
+    }
+
+    .campaign-select select {
+        padding: 0.8rem;
+    }
+
+    .campaign-select select:focus {
+        box-shadow: none;
+    }
+
+    .campaign-select select:hover {
+        border-color: var(--gray-light);
+    }
+}
