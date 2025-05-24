@@ -25,6 +25,10 @@ const getMissions = async (req, res) => {
 const getSingleMission = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        }
+
         const mission = await Mission.findById(id);
         res.status(200).json(mission);
     } catch (err) {
@@ -47,6 +51,9 @@ const addMission = async (req, res) => {
 const updateMission = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        }
 
         // Find the existing mission
         let mission = await Mission.findById(id);
@@ -78,6 +85,10 @@ const deleteMission = async (req, res) => {
     try {
 
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        }
+
         const mission = await Mission.findByIdAndDelete(id);
         if (!mission) {
             return res.status(404).json({ message: 'Mission not found' });

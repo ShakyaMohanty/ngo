@@ -8,19 +8,35 @@ const { v4 } = require('uuid');
 const signupUser = async (req, res) => {
     try {
 
-        const adminExists = await User.findOne({ isAdmin: true });
-        if (adminExists) {
-            return res.status(400).json({ admin: false, message: 'Only one user can signup' });
-        } else {
-            const { username, email, password } = req.body;
-            if (!username || !email || !password) {
-                return res.status(400).json({ message: "All fields are required" });
-            }
-            const hassedPassword = await bcrypt.hash(password, 10);
-            const newUser = new User({ username, email, password: hassedPassword, isAdmin: true });
-            await newUser.save();
-            res.status(200).json({ message: `User Registered successfully with username: ${username} ` });
+        const { username, email, password } = req.body;
+        if (!username || !email || !password) {
+            return res.status(400).json({ message: "All fields are required" });
         }
+
+        const adminExists = await User.findOne({ isAdmin: true });
+        const authUserExists = await User.findOne({ username: username });
+        const authEmailExists = await User.findOne({ email: email });
+        let isAdmin;
+
+        if (authUserExists) {
+            return res.status(400).json({ message: `User: '${username}' already exists` })
+        }
+        if (authEmailExists) {
+            return res.status(400).json({ message: `Email: '${email}' already exists` })
+        }
+
+        if (adminExists) {
+            isAdmin = false
+        } else {
+            isAdmin = true
+        }
+
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = new User({ username, email, password: hashedPassword, isAdmin });
+        await newUser.save();
+        res.status(201).json({ message: `User Registered successfully with username: ${username} ` });
+
 
     } catch (err) {
         res.status(500).json({ message: 'Something went wrong' + err.message });
@@ -66,6 +82,7 @@ const logoutUser = async (req, res) => {
         req.user.sessionId = null;
         req.user.sessionExpires = null;
         await req.user.save();
+        /* res.status(204).send(); // No content, no message  */
         res.status(200).json({ message: "Logged out successfully. Please remove token from client storage." });
 
     } catch (error) {

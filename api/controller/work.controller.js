@@ -26,6 +26,9 @@ const getWorks = async (req, res) => {
 const getSingleWork = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        }
         const work = await Work.findById(id);
         if (!work) return res.status(404).json({ message: "Work not found" }); // added
         res.status(200).json(work);
@@ -57,7 +60,9 @@ const addWork = async (req, res) => {
 const updateWork = async (req, res) => {
     try {
         const { id } = req.params;
-
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        }
         // Find the existing mission
         let work = await Work.findById(id);
         if (!work) {
@@ -126,6 +131,9 @@ const updateWork = async (req, res) => {
 const deleteWork = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        }
         const work = await Work.findByIdAndDelete(id);
         if (!work) {
             return res.status(404).json({ message: 'Work not found' });

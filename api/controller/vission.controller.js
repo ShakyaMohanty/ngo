@@ -25,6 +25,9 @@ const getVissions = async (req, res) => {
 const getSingleVission = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        }
         const vission = await Vission.findById(id);
         res.status(200).json(vission);
     } catch (err) {
@@ -47,7 +50,9 @@ const addVission = async (req, res) => {
 const updateVission = async (req, res) => {
     try {
         const { id } = req.params;
-
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        }
 
         let vission = await Vission.findById(id);
         if (!vission) {
@@ -76,6 +81,9 @@ const deleteVission = async (req, res) => {
     try {
 
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        }
         const vission = await Vission.findByIdAndDelete(id);
         if (!vission) {
             return res.status(404).json({ message: 'Vission not found' });

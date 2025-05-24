@@ -24,6 +24,10 @@ const getGoals = async (req, res) => {
 const getSingleGoal = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        }
+
         const goal = await Goal.findById(id);
         res.status(200).json(goal);
     } catch (error) {
@@ -45,6 +49,11 @@ const addGoal = async (req, res) => {
 const updateGoal = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        } //This protects against: Malformed IDs, Injection attacks, and Accidental crashes
+
+
         let goal = await Goal.findById(id);
         if (!goal) {
             return res.status(404).json({ message: 'Goal not found' });
@@ -67,6 +76,10 @@ const updateGoal = async (req, res) => {
 const deleteGoal = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        } //This protects against: Malformed IDs, Injection attacks, and Accidental crashes
+
         const goal = await Goal.findByIdAndDelete(id);
         if (!goal) {
             return res.status(404).json({ message: 'Goal not found' });
