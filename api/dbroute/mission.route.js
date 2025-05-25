@@ -1,4 +1,13 @@
-
+/**
+ * @swagger
+ * /missions:
+ *   get:
+ *     summary: Get all mission entries
+ *     tags: [Mission]
+ *     responses:
+ *       200:
+ *         description: List of mission items
+ */
 const route = require('express');
 const authMiddleware = require('../middlewares/auth.middleware.js');
 const { getMissions, getSingleMission, addMission, updateMission, deleteMission, upload } = require('../controller/mission.controller.js');

@@ -1,3 +1,13 @@
+/**
+ * @swagger
+ * /vissions:
+ *   get:
+ *     summary: Get all vission entries
+ *     tags: [Vission]
+ *     responses:
+ *       200:
+ *         description: List of vission items
+ */
 const express = require('express');
 const controller = require('../controller/vission.controller.js');
 const authMiddleware = require('../middlewares/auth.middleware.js');
