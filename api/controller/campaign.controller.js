@@ -24,6 +24,10 @@ const getCampaigns = async (req, res) => {
 const getSingleCampaign = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        } //This protects against: Malformed IDs, Injection attacks, and Accidental crashes
+
         const campaign = await Campaign.findById(id);
         res.status(200).json(campaign);
     } catch (error) {
@@ -45,6 +49,10 @@ const addCampaign = async (req, res) => {
 const updateCampaign = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        } //This protects against: Malformed IDs, Injection attacks, and Accidental crashes
+
         let campaign = await Campaign.findById(id);
         if (!campaign) {
             return res.status(404).json({ message: 'Campaign not found' });
@@ -67,6 +75,10 @@ const updateCampaign = async (req, res) => {
 const deleteCampaign = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: 'Invalid user ID' });
+        } //This protects against: Malformed IDs, Injection attacks, and Accidental crashes
+
         const campaign = await Campaign.findByIdAndDelete(id);
         if (!campaign) {
             return res.status(404).json({ message: 'Campaign not found' });

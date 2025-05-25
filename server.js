@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
 const helmet = require('helmet');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./api/config/swagger.js');
 
 const dbConnect = require('./api/config/dbConnect.js');
 const authRoute = require('./api/dbroute/auth.route.js');
@@ -61,6 +63,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
 }));
 
 
+
 // API routes
 app.use('/api/auth', authRoute);
 app.use('/api/missions', missionRoute);
@@ -81,7 +84,11 @@ app.get('/donate', sendSafeFile(path.join(__dirname, 'public/donate.html')));
 app.get('/works', sendSafeFile(path.join(__dirname, 'public/our_work.html')));
 app.get('/story', sendSafeFile(path.join(__dirname, 'public/success_story.html')));
 
+if (process.env.NODE_ENV !== 'production') {
+    app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+}
+// app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 // Catch-all route for undefined routes
@@ -99,7 +106,6 @@ app.use((err, req, res, next) => {
 app.use('/uploads', express.static('uploads'));
 // API
 app.get('/api')
-
 
 
 // start server
