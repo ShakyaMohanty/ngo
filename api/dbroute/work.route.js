@@ -7,7 +7,7 @@
 
 /**
  * @swagger
- * /api/works:
+ * /works:
  *   get:
  *     summary: Get all work entries
  *     tags: [Work]
@@ -16,7 +16,7 @@
  *         description: List of work items
  * 
  * @swagger
- * /api/works/{id}:
+ * /works/{id}:
  *   get:
  *     summary: Get a single work entry
  *     tags: [Work]
@@ -32,7 +32,7 @@
  *         description: Work item
  * 
  * @swagger
- * /api/works:
+ * /works:
  *   post:
  *     summary: Create a new work
  *     tags: [Work]
@@ -69,7 +69,7 @@
  *         description: Work created successfully
  * 
  * @swagger
- * /api/works/{id}:
+ * /works/{id}:
  *   put:
  *     summary: Update a work
  *     tags: [Work]
@@ -113,7 +113,7 @@
  *         description: Work updated successfully
  * 
  * @swagger
- * /api/works/{id}:
+ * /works/{id}:
  *   delete:
  *     summary: Delete a work
  *     tags: [Work]
