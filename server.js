@@ -7,11 +7,10 @@ const swaggerSpec = require('./api/config/swagger.js');
 
 const dbConnect = require('./api/config/dbConnect.js');
 const authRoute = require('./api/dbroute/auth.route.js');
-const missionRoute = require('./api/dbroute/mission.route.js');
-const workRoute = require('./api/dbroute/work.route.js');
-const goalRoute = require('./api/dbroute/goal.route.js');
 const campaignRoute = require('./api/dbroute/campaign.route.js');
-const vissionRoute = require('./api/dbroute/vission.route.js');
+const workRoute = require('./api/dbroute/work.route.js');
+const storyRoute = require('./api/dbroute/story.route.js');
+
 
 const sendSafeFile = require('./middlewares/sendSafeFile');
 
@@ -66,11 +65,9 @@ app.use(express.static(path.join(__dirname, 'public'), {
 
 // API routes
 app.use('/api/auth', authRoute);
-app.use('/api/missions', missionRoute);
 app.use('/api/works', workRoute);
-app.use('/api/goals', goalRoute);
 app.use('/api/campaigns', campaignRoute);
-app.use('/api/vissions', vissionRoute);
+app.use('/api/stories', storyRoute);
 
 
 // app.get('/', (req, res) => {

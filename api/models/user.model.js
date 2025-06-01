@@ -23,6 +23,11 @@ const userSchema = new mongoose.Schema(
             type: Boolean,
             required: true
         },
+        userType: {
+            type: String,
+            enum: ['volunteer', 'public', 'partner'],
+            required: [true, 'User type is required'],
+        },
         sessionId: {
             type: String,
             default: null

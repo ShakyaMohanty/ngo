@@ -1,6 +1,7 @@
 const Campaign = require("../models/campaign.model.js");
 const multer = require('multer');
-
+const path = require('path');
+const fs = require('fs');
 // Configure multer for image uploads
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -59,6 +60,16 @@ const updateCampaign = async (req, res) => {
         }
         let image = campaign.image;
         if (req.file) {
+            if (image) {
+                const oldImagePath = path.join(__dirname, '../../', image);
+                try {
+                    await fs.promises.unlink(oldImagePath);
+                } catch (err) {
+                    if (err.code !== 'ENOENT') {
+                        console.warn('Failed to delete image file:', err.message);
+                    }
+                }
+            }
             image = `/uploads/${req.file.filename}`;
         }
         const updatedCampaign = await Campaign.findByIdAndUpdate(
@@ -82,6 +93,19 @@ const deleteCampaign = async (req, res) => {
         const campaign = await Campaign.findByIdAndDelete(id);
         if (!campaign) {
             return res.status(404).json({ message: 'Campaign not found' });
+        }
+        let image = story.image;
+
+        if (image) {
+            // Asynchronous code for deleting old image
+            const oldImagePath = path.join(__dirname, '../../', image);
+            try {
+                await fs.promises.unlink(oldImagePath);
+            } catch (err) {
+                if (err.code !== 'ENOENT') {
+                    console.warn('Failed to delete image file:', err.message);
+                }
+            }
         }
         const deletedCampaign = await Campaign.findById(id);
         res.status(200).json({ deletedCampaign, message: 'Campaign deleted successfully' });
