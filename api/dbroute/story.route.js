@@ -1,43 +1,34 @@
 /**
  * @swagger
- * tags:
- *   name: Work
- *   description: Work section APIs
- */
-
-/**
- * @swagger
- * /works:
+ * /stories:
  *   get:
- *     summary: Get all work entries
- *     tags: [Work]
+ *     summary: Get all story entries
+ *     tags: [Story]
  *     responses:
  *       200:
- *         description: List of work items
+ *         description: List of story items
  * 
  * @swagger
- * /works/{id}:
+ * /stories/{id}:
  *   get:
- *     summary: Get a single work entry
- *     tags: [Work]
+ *     summary: Get a single story entry
+ *     tags: [Story]
  *     parameters:
  *       - name: id
  *         in: path
- *         description: ID of the work to retrieve
+ *         description: ID of the story to retrieve
  *         required: true
- *         schema:  
+ *         schema:
  *           type: string
  *     responses:
  *       200:
- *         description: Work item
+ *         description: Story item
  * 
  * @swagger
- * /works:
+ * /stories:
  *   post:
- *     summary: Create a new work
- *     tags: [Work]
- *     security:
- *       - bearerAuth: []
+ *     summary: Create a new story
+ *     tags: [Story]
  *     requestBody:
  *       required: true
  *       content:
@@ -45,40 +36,28 @@
  *           schema:
  *             type: object
  *             properties:
- *               title:
+ *               name:
  *                 type: string
  *               description:
  *                 type: string
- *               subtitle:
- *                 type: string
- *               subtitle_description:
- *                 type: string
- *               subsubtitle:
- *                 type: string
- *               subsubtitle_description:
- *                 type: string
- *               bulletPoints:
- *                 type: array
- *                 items:
- *                   type: string
  *               image:
  *                 type: string
  *                 format: binary
  *     responses:
- *       201:
- *         description: Work created successfully
+ *       200:
+ *         description: Story created successfully
  * 
  * @swagger
- * /works/{id}:
+ * /stories/{id}:
  *   put:
- *     summary: Update a work
- *     tags: [Work]
+ *     summary: Update a story
+ *     tags: [Story]
  *     security:
  *       - bearerAuth: []
  *     parameters:
  *       - name: id
  *         in: path
- *         description: ID of the work to update
+ *         description: ID of the story to update
  *         required: true
  *         schema:
  *           type: string
@@ -97,11 +76,13 @@
  *                 type: string
  *               subtitle_description:
  *                 type: string
- *               subsubtitle:
+ *               location:
  *                 type: string
- *               subsubtitle_description:
+ *               date:
  *                 type: string
- *               bulletPoints:
+ *               impact_description:
+ *                 type: string
+ *               impact_bulletPoints:
  *                 type: array
  *                 items:
  *                   type: string
@@ -110,37 +91,37 @@
  *                 format: binary
  *     responses:
  *       200:
- *         description: Work updated successfully
+ *         description: Story updated successfully
  * 
  * @swagger
- * /works/{id}:
+ * /stories/{id}:
  *   delete:
- *     summary: Delete a work
- *     tags: [Work]
+ *     summary: Delete a story
+ *     tags: [Story]
  *     security:
  *       - bearerAuth: []
  *     parameters:
  *       - name: id
  *         in: path
- *         description: ID of the work to delete
+ *         description: ID of the story to delete
  *         required: true
  *         schema:
  *           type: string
  *     responses:
  *       200:
- *         description: Work deleted successfully
- * 
+ *         description: Story deleted successfully
  */
 const express = require('express');
-const { getWorks, getSingleWork, addWork, updateWork, deleteWork, upload } = require('../controller/work.controller.js');
+const controller = require('../controller/story.controller.js');
 const authMiddleware = require('../middlewares/auth.middleware.js');
+
 const router = express.Router();
 
-router.get('/', getWorks);
-router.get('/:id', getSingleWork);
+router.get('/', controller.getStories);
+router.get('/:id', controller.getSingleStory);
 
-router.post('/', authMiddleware, upload.single('image'), addWork);
-router.put('/:id', authMiddleware, upload.single('image'), updateWork);
-router.delete('/:id', authMiddleware, deleteWork);
+router.post('/', authMiddleware, controller.upload.single('image'), controller.addStory);
+router.put('/:id', authMiddleware, controller.upload.single('image'), controller.updateStory);
+router.delete('/:id', authMiddleware, controller.deleteStory);
 
 module.exports = router

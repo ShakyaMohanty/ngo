@@ -26,9 +26,23 @@ const signupUser = async (req, res) => {
         }
 
         if (adminExists) {
+
+            return res.status(400).json({ admin: false, message: 'Only one Admin can signup' });
+        } else {
+            const { username, email, password } = req.body;
+            if (!username || !email || !password) {
+                return res.status(400).json({ message: "All fields are required" });
+            }
+            const hassedPassword = await bcrypt.hash(password, 10);
+            const newUser = new User({ username, email, password: hassedPassword, isAdmin: true });
+            await newUser.save();
+            res.status(201).json({ message: `User Registered successfully with username: ${username} ` });
+        }
+        if (!isAdmin) {
             isAdmin = false
         } else {
             isAdmin = true
+
         }
 
 

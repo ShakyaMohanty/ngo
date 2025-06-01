@@ -1,8 +1,7 @@
 const Work = require("../models/work.model.js");
 const multer = require('multer');
-const fs = require('fs').promises;
 const path = require('path');
-
+const fs = require('fs');
 // Configure multer for image uploads
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -39,18 +38,21 @@ const getSingleWork = async (req, res) => {
 
 const addWork = async (req, res) => {
     try {
-        const { title, description, subtitle, subtitle_description, subsubtitle, subsubtitle_description, bulletPoints, } = req.body;
+        const { title, description, subtitle, subtitle_description, approach_description, approach_bulletPoints, impact_description, impact_bulletPoints } = req.body;
         const image = req.file ? `/uploads/${req.file.filename}` : null;
-        const work = await Work.create({
-            title: title,
-            description: description,
-            subtitle: subtitle,
-            subtitle_description: subtitle_description,
-            subsubtitle: subsubtitle,
-            subsubtitle_description: subsubtitle_description,
-            bulletPoints: Array.isArray(bulletPoints) ? bulletPoints : typeof bulletPoints === "string" ? bulletPoints.split(',').map(s => s.trim()) : [],
-            image,
-        });
+        const work = await Work.create(
+            {
+                title,
+                description,
+                subtitle,
+                subtitle_description,
+                approach_description,
+                approach_bulletPoints,
+                impact_description,
+                impact_bulletPoints,
+                image
+            }
+        );
         res.status(200).json({ work: work, message: 'Work created successfully' });
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -63,7 +65,7 @@ const updateWork = async (req, res) => {
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({ message: 'Invalid user ID' });
         }
-        // Find the existing mission
+        // Find the existing work
         let work = await Work.findById(id);
         if (!work) {
             return res.status(404).json({ message: 'Work not found' });
@@ -72,54 +74,36 @@ const updateWork = async (req, res) => {
         // If a new image is uploaded, update it; otherwise, keep the old image
         let image = work.image;
         if (req.file) {
-            // If a new image is uploaded, delete old one
             if (image) {
-                const imagePath = path.join(__dirname, '../../', image);
+                const oldImagePath = path.join(__dirname, '../../', image);
                 try {
-                    // if (fs.existsSync(imagePath)) {
-                    //     fs.unlinkSync(imagePath); // delete old image
-                    // }
-                    await fs.unlink(imagePath);
-                    console.log('Old image deleted:', imagePath);
+                    await fs.promises.unlink(oldImagePath);
                 } catch (err) {
                     if (err.code !== 'ENOENT') {
-                        console.warn('Failed to delete old image:', err.message);
+                        console.warn('Failed to delete image file:', err.message);
                     }
                 }
             }
-
-            // New uploaded image path
-            image = `/uploads/${req.file.filename}`;
+            image = `/uploads/${req.file.filename}`; // New uploaded image path
         }
 
-        const {
-            title,
-            description,
-            subtitle,
-            subtitle_description,
-            subsubtitle,
-            subsubtitle_description,
-            bulletPoints
-        } = req.body;
-
-        // Update the mission with new data
+        // Update the work with new data
         const updatedWork = await Work.findByIdAndUpdate(
             id,
             {
-                title,
-                description,
-                subtitle,
-                subtitle_description,
-                subsubtitle,
-                subsubtitle_description,
-                bulletPoints: Array.isArray(bulletPoints)
-                    ? bulletPoints
-                    : typeof bulletPoints === 'string'
-                        ? bulletPoints.split(',').map(s => s.trim())
-                        : [],
-                image: req.file ? `/uploads/${req.file.filename}` : existingWork.image
+                title: req.body.title,
+                description: req.body.description,
+                subtitle: req.body.subtitle,
+                subtitle_description: req.body.subtitle_description,
+                approach_description: req.body.approach_description,
+                approach_bulletPoints: req.body.approach_bulletPoints,
+                impact_description: req.body.impact_description,
+                impact_bulletPoints: req.body.impact_bulletPoints,
+                image
             },
-            { new: true }
+            {
+                new: true
+            }
         );
 
         res.status(200).json({ updatedWork, message: 'Work updated successfully' });
@@ -138,19 +122,16 @@ const deleteWork = async (req, res) => {
         if (!work) {
             return res.status(404).json({ message: 'Work not found' });
         }
-        // Delete the associated image file if it exists
-        if (work.image) {
-            const imagePath = path.join(__dirname, '../../', work.image);
+        let image = story.image;
+
+        if (image) {
+            // Asynchronous code for deleting old image
+            const oldImagePath = path.join(__dirname, '../../', image);
             try {
-                // if (fs.existsSync(imagePath)) {
-                //     fs.unlinkSync(imagePath);
-                //     console.log('Image file deleted:', imagePath);
-                // }
-                await fs.unlink(imagePath);
-                console.log('Image file deleted:', imagePath);
+                await fs.promises.unlink(oldImagePath);
             } catch (err) {
                 if (err.code !== 'ENOENT') {
-                    console.warn('Image deletion failed:', err.message);
+                    console.warn('Failed to delete image file:', err.message);
                 }
             }
         }

@@ -18,15 +18,20 @@ const workSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Subtitle description is required'],
         },
-        subsubtitle: {
+        approach_description: {
             type: String,
-            required: [true, 'Sub-sub-title is required'],
+            required: [true, 'Approach body is required'],
         },
-        subsubtitle_description: {
+        approach_bulletPoints: {
+            type: [String], // array of bullet point lines
+            default: [],
+            required: false,
+        },
+        impact_description: {
             type: String,
-            required: [true, 'Sub-sub-title body is required'],
+            required: [true, 'Impact body is required'],
         },
-        bulletPoints: {
+        impact_bulletPoints: {
             type: [String], // array of bullet point lines
             default: [],
             required: false,

@@ -7,7 +7,7 @@
 
 /**
  * @swagger
- * /api/auth/signup:
+ * /auth/signup:
  *   post:
  *     summary: Register a new user
  *     tags: [Auth]
@@ -18,7 +18,7 @@
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               username:
  *                 type: string
  *               email:
  *                 type: string
@@ -31,7 +31,7 @@
 
 /**
  * @swagger
- * /api/auth/login:
+ * /auth/login:
  *   post:
  *     summary: User login
  *     tags: [Auth]
@@ -53,7 +53,7 @@
 
 /**
  * @swagger
- * /api/auth/logout:
+ * /auth/logout:
  *   post:
  *     summary: Logout user
  *     tags: [Auth]
@@ -66,7 +66,7 @@
 
 /**
  * @swagger
- * /api/auth/validate-session:
+ * /auth/validate-session:
  *   get:
  *     summary: Validate JWT session
  *     tags: [Auth]
@@ -79,7 +79,7 @@
 
 /**
  * @swagger
- * /api/auth/forgot-password:
+ * /auth/forgot-password:
  *   post:
  *     summary: Request password reset
  *     tags: [Auth]
@@ -99,7 +99,7 @@
 
 /**
  * @swagger
- * /api/auth/reset-password:
+ * /auth/reset-password:
  *   post:
  *     summary: Reset password with token
  *     tags: [Auth]
